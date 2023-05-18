@@ -34,4 +34,6 @@
 	<update id="update">
 		update membertbl set password=#{newPassword} where userid=#{userid} 
 	</update>
+	
+	
 </mapper>
