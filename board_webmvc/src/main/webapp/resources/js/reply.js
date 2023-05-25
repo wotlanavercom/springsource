@@ -43,10 +43,12 @@ let replyService = (function () {
         return response.json();
       })
       .then((data) => {
+        console.log("리스트와 개수");
+        console.log(data);
         //data 가 도착해서 함수가 호출되면 넘겨받은
         //함수 호출
         if (callback) {
-          callback(data);
+          callback(data.replyCnt, data.list);
         }
       })
       .catch((error) => console.log(error));
@@ -108,10 +110,53 @@ let replyService = (function () {
       .catch((error) => console.log(error));
   }
 
+  function update(reply, callback) {
+    fetch("/replies/" + reply.rno, {
+      method: "put",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(reply),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("수정 실패");
+        }
+        return response.text();
+      })
+      .then((data) => {
+        if (callback) {
+          callback(data);
+        }
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function remove(rno, callback) {
+    fetch("/replies/" + rno, {
+      method: "delete",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("삭제 실패");
+        }
+        return response.text();
+      })
+      .then((data) => {
+        if (callback) {
+          callback(data);
+        }
+      })
+      .catch((error) => console.log(error));
+  }
+
+  //외부에서 접근 가능한 함수 지정
   return {
     add: add,
     getList: getList,
     displayTime: displayTime,
     get: get,
+    update: update,
+    remove: remove,
   };
 })();
