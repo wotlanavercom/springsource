@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/resources/css/upload.css" /> 
+<link rel="stylesheet" href="/resources/css/lightbox.min.css" /> 
+<script src="/resources/js/jquery.min.js"></script>
+<script src="/resources/js/lightbox.min.js"></script>
+
 </head>
 <body>
 <h1>Upload Ajax</h1>
