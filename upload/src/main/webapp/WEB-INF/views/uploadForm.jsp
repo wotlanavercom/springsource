@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- form 안 file 요소가 존재 시 enctype 변경 -->
+	<!-- form 안 file 요소가 존재 시 enctype 변경  -->
 	<form action="" method="post" enctype="multipart/form-data">
 		<div>
 			<label for="name">name</label>
@@ -15,13 +15,11 @@
 		</div>
 		<div>
 			<label for="file">file</label>
-			<input type="file" name="file" id="file" multiple accept="image/*, .txt" />
+			<input type="file" name="file" id="file" multiple accept="image/*, .txt"/>
 		</div>
 		<div>
 			<button type="submit">submit</button>
 		</div>
 	</form>
 </body>
-</html>   
-
-
+</html>

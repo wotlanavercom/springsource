@@ -19,12 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.domain.FileDTO;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * Handles requests for the application home page.
  */
-
 @Controller
 public class HomeController {
 	
@@ -52,19 +49,22 @@ public class HomeController {
 		logger.info("uploadForm 요청");
 	}
 	
-	//첨부 파일이 한 개인 경우
+//	첨부 파일이 한 개인 경우
 //	@PostMapping("/uploadForm")
 //	public void uploadPost(FileDTO dto) {
-//		logger.info("upload 요청");
+//		logger.info("upload 요청 "+dto);
 //		
 //		logger.info("file Name "+dto.getFile().getOriginalFilename());
 //		logger.info("content type "+dto.getFile().getContentType());
-//		logger.info("file sixe "+dto.getFile().getSize());
+//		logger.info("file size "+dto.getFile().getSize());
 //		
 //		String uploadPath = "C:\\upload";
 //		File saveFile = new File(uploadPath, dto.getFile().getOriginalFilename());
 //		
+//		
 //		try {
+//			
+//			//폴더에 저장
 //			dto.getFile().transferTo(saveFile);
 //		} catch (IllegalStateException e) {			
 //			e.printStackTrace();
@@ -73,16 +73,16 @@ public class HomeController {
 //		}
 //	}
 	
-	//첨부 파일이 여러개인 경우
+	// 첨부 파일이 여러개인 경우
 	@PostMapping("/uploadForm")
 	public void uploadPost(FileDTO dto) {
-		logger.info("upload 요청");
+		logger.info("upload 요청 "+dto);
 		
 		String uploadPath = "C:\\upload";
 		for (MultipartFile multipartFile : dto.getFile()) {
 			logger.info("file Name "+multipartFile.getOriginalFilename());
 			logger.info("content type "+multipartFile.getContentType());
-			logger.info("file sixe "+multipartFile.getSize());			
+			logger.info("file size "+multipartFile.getSize());
 			
 			UUID uuid = UUID.randomUUID();
 			String fileName = uuid.toString() + "_" + multipartFile.getOriginalFilename();
@@ -90,6 +90,7 @@ public class HomeController {
 			File saveFile = new File(uploadPath, fileName);
 			
 			try {
+				
 				//폴더에 저장
 				multipartFile.transferTo(saveFile);
 			} catch (IllegalStateException e) {			
@@ -97,7 +98,22 @@ public class HomeController {
 			} catch (IOException e) {			
 				e.printStackTrace();
 			}
-		}
-		
+		}		
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -49,14 +49,18 @@ public class BoardController {
 	}
 	
 	@PostMapping("/register")
-	public String register(BoardDTO boardDTO, RedirectAttributes rttr, CriteriaDTO cri) {
-		log.info("글쓰기 등록 요청 "+boardDTO);
+	public String register(BoardDTO dto, RedirectAttributes rttr, CriteriaDTO cri) {
+		log.info("글쓰기 등록 요청 "+dto);
 		
-		if(service.insert(boardDTO)) {
+		//첨부파일 확인
+//		if(dto.getAttachList() != null) {
+//			dto.getAttachList().forEach(attach -> log.info(attach.toString()));
+//		}
+		if(service.insert(dto)) {
 			
-			log.info("글 번호 "+boardDTO.getBno());
+			log.info("글 번호 "+dto.getBno());
 			
-			rttr.addFlashAttribute("result", boardDTO.getBno());
+			rttr.addFlashAttribute("result", dto.getBno());
 			//페이지 나누기 정보 주소줄에 같이 보내기
 			rttr.addAttribute("page", cri.getPage());
 			rttr.addAttribute("amount", cri.getAmount());

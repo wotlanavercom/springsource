@@ -40,7 +40,8 @@
 	
 	
 	
-	<!-- 동적 쿼리 
+	<!-- 
+		동적 쿼리 
 		
 		board/list?page=1&amount=20&type=T&keyword=자바  요청
 		
@@ -76,7 +77,7 @@
 		</selectKey>
 	
 		insert into spring_board(bno, title, content, writer) 
-		values(seq_board.nextval, #{title}, #{content}, #{writer})
+		values(#{bno}, #{title}, #{content}, #{writer})
 	</insert>
 	
 	<!-- 특정 번호 조회 -->
