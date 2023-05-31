@@ -21,6 +21,7 @@ public class ReplyServiceImpl implements ReplyService {
 	@Autowired
 	private BoardMapper mapper;
 	
+	
 	@Override
 	public ReplyDTO read(int rno) {
 		
@@ -30,6 +31,7 @@ public class ReplyServiceImpl implements ReplyService {
 	@Transactional
 	@Override
 	public boolean insert(ReplyDTO dto) {
+		
 		//댓글 수 추가
 		mapper.updateReplyCnt(dto.getBno(), 1);
 		//댓글 등록
