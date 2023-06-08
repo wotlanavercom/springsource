@@ -28,7 +28,7 @@
 </form>
 <script>
 	const code = ${dto.code};
-	const listPath = '<c:url value="//book/list"/>';
+	const listPath = '<c:url value="/book/list"/>';
 	const removePath = '<c:url value="/book/remove"/>';
 </script>
 <script src='<c:url value="/resources/js/update.js"/>'></script>
