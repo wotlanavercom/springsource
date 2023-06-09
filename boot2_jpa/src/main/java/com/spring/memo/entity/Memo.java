@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +16,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity  //클래스를 엔티티로 선언
+//@Table(name = "memos")
 @SequenceGenerator(name = "mem_seq_gen", sequenceName = "mem_seq", allocationSize = 1)
 @Getter@Setter@ToString
 @AllArgsConstructor@NoArgsConstructor
