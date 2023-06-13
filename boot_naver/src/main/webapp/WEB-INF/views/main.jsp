@@ -42,7 +42,7 @@
                 나의 맛집 리스트
             </div>
         </div>        
-        <div id="wish-list">            
+        <div id="wish-list">          
            <hr class="mt-1" />
            <div class="row">
                <div class="col-sm-6 col-md-8">
@@ -55,7 +55,7 @@
                         <li class='list-group-item'>주소 : </li>
                         <li class='list-group-item'>도로명 : </li>
                         <li class='list-group-item'>방문여부 :</li>
-                        <li class='list-group-item'>마지막 방문일자 : </li>
+                        <li class='list-group-item'>마지막 방문일자 : </li> 
                         <li class='list-group-item'>방문횟수 : </li>
                         <li class='list-group-item'>
                             <a href=''>홈페이지</a>
